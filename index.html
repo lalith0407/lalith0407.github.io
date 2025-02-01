@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -67,13 +66,13 @@
             padding: 1rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             z-index: 1000;
-            transition: background 0.3s;
         }
 
         .nav-links {
             display: flex;
             justify-content: center;
             list-style: none;
+            flex-wrap: wrap;
         }
 
         .nav-links li {
@@ -98,10 +97,9 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-bg.jpg');
-            background-size: cover;
-            background-position: center;
+            background: var(--dark-color);
             color: white;
+            padding-top: 60px;
         }
 
         .hero-content h1 {
@@ -129,70 +127,43 @@
             transform: translateY(-3px);
         }
 
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .skill-card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* Projects Section */
-        .projects-grid {
+        /* Skills Section */
+        .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .project-card {
+        .skill-category {
             background: white;
+            padding: 2rem;
             border-radius: 10px;
-            overflow: hidden;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .project-info {
-            padding: 1.5rem;
-        }
-
-        .achievement {
-            color: var(--primary-color);
-            font-weight: 600;
+        .skill-list {
+            list-style: none;
             margin-top: 1rem;
         }
 
-        /* Timeline */
+        .skill-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list li i {
+            color: var(--primary-color);
+            margin-right: 0.8rem;
+        }
+
+        /* Experience Section */
         .timeline {
             position: relative;
             max-width: 800px;
@@ -217,25 +188,75 @@
             border-radius: 50%;
         }
 
-        /* Certifications */
-        .certifications {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+        .experience-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .experience-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .duration {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
 
-        .certification-badge {
-            width: 120px;
-            margin: 1rem;
-            transition: transform 0.3s;
+        .project-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
-        .certification-badge:hover {
-            transform: scale(1.1);
+        .achievement {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 1rem;
         }
 
-        /* Contact Form */
+        /* Publications Section */
+        .publication-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Certifications Section */
+        .certifications-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .certification-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Contact Section */
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
@@ -253,45 +274,39 @@
             font-size: 1rem;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                text-align: center;
-            }
-
             .nav-links li {
-                margin: 0.5rem 0;
+                margin: 0.5rem;
             }
-
             .hero-content h1 {
                 font-size: 2.5rem;
             }
-
             .section-title {
                 font-size: 2rem;
+            }
+            .skills-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#publications">Publications</a></li>
+            <li><a href="#certifications">Certifications</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Lalith Vardhan Rongali</h1>
-            <p>Generative AI Specialist & Computer Vision Researcher</p>
+            <p>I am a graduate student passionate about advancing machine learning and computer vision. My current research delves into multimodel learning, computer vision, large language models (LLMs), retrieval-augmented generation (RAGs), and transformers, with the goal of developing innovative solutions to real-world challenges. As a dedicated Associate Instructor, I enjoy mentoring students and making complex concepts in machine learning and programming accessible. With practical experience in cutting-edge technologies and a solid academic foundation, I am committed to driving advancements in AI while continually learning and evolving in this dynamic field.</p>
             <div class="social-links">
                 <a href="https://linkedin.com/in/lalithvardhanrongali04" class="cta-btn" target="_blank">
                     <i class="fab fa-linkedin"></i> LinkedIn
@@ -303,97 +318,164 @@
         </div>
     </section>
 
-    <!-- Research Section -->
-    <section id="research" class="section">
+    <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Research Focus</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Video Understanding Architectures</h3>
-                    <p>V-JEPA/I-JEPA research at Indiana University</p>
-                    <ul>
-                        <li>Developed 512D anomaly detection pipeline (PyTorch/NumPy)</li>
-                        <li>Enhanced captioning accuracy through multimodal alignment</li>
-                        <li>15% improvement in action recognition benchmarks</li>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages & Frameworks</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-code"></i>Python</li>
+                        <li><i class="fas fa-database"></i>SQL</li>
+                        <li><i class="fas fa-cogs"></i>C</li>
+                        <li><i class="fab fa-python"></i>TensorFlow</li>
+                        <li><i class="fas fa-brain"></i>PyTorch</li>
+                        <li><i class="fas fa-chart-line"></i>Scikit-learn</li>
+                        <li><i class="fas fa-link"></i>LangChain</li>
+                        <li><i class="fas fa-toolbox"></i>LangSmith</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>ML & AI Technologies</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-microchip"></i>Machine Learning</li>
+                        <li><i class="fas fa-network-wired"></i>Neural Networks</li>
+                        <li><i class="fas fa-layer-group"></i>Deep Learning</li>
+                        <li><i class="fas fa-eye"></i>Computer Vision</li>
+                        <li><i class="fas fa-language"></i>NLP</li>
+                        <li><i class="fas fa-robot"></i>Generative AI</li>
+                        <li><i class="fas fa-book"></i>LLMs</li>
+                        <li><i class="fas fa-search"></i>RAG</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <ul class="skill-list">
+                        <li><i class="fab fa-git-alt"></i>Git</li>
+                        <li><i class="fas fa-server"></i>PostgreSQL</li>
+                        <li><i class="fas fa-cube"></i>Prisma ORM</li>
+                        <li><i class="fas fa-cloud"></i>Oracle Cloud</li>
+                        <li><i class="fas fa-map"></i>QGIS</li>
+                        <li><i class="fas fa-hammer"></i>Hugging Face</li>
+                        <li><i class="fas fa-vector-square"></i>FAISS</li>
+                        <li><i class="fas fa-image"></i>CLIP/ViLT</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Expertise Section -->
-    <section id="expertise" class="section bg-light">
+    <section id="experience" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Technical Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fas fa-brain"></i>
-                    <h3>Core ML</h3>
-                    <p>Transformers · CLIP · Vision Models · RAG</p>
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Graduate Research Associate</h3>
+                    <h4>Indiana University Bloomington</h4>
+                    <p class="duration">Jan 2024 - Present</p>
+                    <ul class="experience-list">
+                        <li>Conducting research on V-JEPA/I-JEPA architectures for video understanding</li>
+                        <li>Developed 512D anomaly detection pipeline using PyTorch/NumPy</li>
+                        <li>Enhanced captioning accuracy through multimodal alignment</li>
+                        <li>15% improvement in action recognition benchmarks</li>
+                    </ul>
                 </div>
-                <div class="skill-card">
-                    <i class="fas fa-robot"></i>
-                    <h3>Generative AI</h3>
-                    <p>LLMs · Diffusion Models · GANs · LangChain</p>
+
+                <div class="timeline-item">
+                    <h3>Graduate Associate Instructor</h3>
+                    <h4>Indiana University Bloomington</h4>
+                    <p class="duration">Aug 2023 - Dec 2023</p>
+                    <ul class="experience-list">
+                        <li>Mentored 250+ students in Applied Machine Learning</li>
+                        <li>Developed hands-on curriculum for deep learning applications</li>
+                        <li>Implemented automated grading system</li>
+                    </ul>
                 </div>
-                <div class="skill-card">
-                    <i class="fas fa-eye"></i>
-                    <h3>Computer Vision</h3>
-                    <p>YOLOv5 · DTM Analysis · Multimodal Learning</p>
+
+                <div class="timeline-item">
+                    <h3>Machine Learning Developer Intern</h3>
+                    <h4>Hyphenova</h4>
+                    <p class="duration">Jun 2022 - Aug 2022</p>
+                    <ul class="experience-list">
+                        <li>Designed NSFW detection system with 85% accuracy</li>
+                        <li>Built scalable data pipeline handling 50K+ images daily</li>
+                        <li>Automated content compliance checks</li>
+                    </ul>
                 </div>
-            </div>
-            
-            <h3 class="section-title" style="margin-top: 4rem;">Certifications</h3>
-            <div class="certifications">
-                <img src="oci-cert.png" alt="OCI Certified" class="certification-badge">
-                <img src="ml-specialization.png" alt="ML Specialization" class="certification-badge">
+
+                <div class="timeline-item">
+                    <h3>Database Management Intern</h3>
+                    <h4>RINL Steel Plant</h4>
+                    <p class="duration">Jun 2021 - Aug 2021</p>
+                    <ul class="experience-list">
+                        <li>Managed databases serving 30+ departments</li>
+                        <li>Improved system uptime by 15%</li>
+                        <li>Reduced downtime by 20%</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="rag-system.jpg" alt="RAG Career Search">
-                    <div class="project-info">
-                        <h3>Career Search Engine with RAG</h3>
-                        <p>LangChain · FAISS · OpenAI · 90% accuracy</p>
-                        <p class="achievement">10x query efficiency improvement</p>
-                    </div>
+                    <h3>Career Search with RAG-Based LLM</h3>
+                    <p>LangChain · FAISS · OpenAI · Streamlit</p>
+                    <ul class="experience-list">
+                        <li>90% accurate career recommendations</li>
+                        <li>10x query efficiency improvement</li>
+                        <li>Automated LinkedIn scraping with Selenium</li>
+                    </ul>
                 </div>
+
                 <div class="project-card">
-                    <img src="mound-detection.jpg" alt="Archaeological Mound Detection">
-                    <div class="project-info">
-                        <h3>Automated Mound Recognition</h3>
-                        <p>YOLOv5 · QGIS · GANs · 480 synthetic samples</p>
-                        <p class="achievement">0.573 precision score achieved</p>
-                    </div>
+                    <h3>Automated Mound Recognition</h3>
+                    <p>YOLOv5 · QGIS · GANs</p>
+                    <ul class="experience-list">
+                        <li>0.573 precision score on DTM data</li>
+                        <li>Generated 480 synthetic samples</li>
+                        <li>Advanced geospatial preprocessing</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Publications Section -->
     <section id="publications" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Publications</h2>
-            <div class="project-card">
-                <div class="project-info">
-                    <h3>Helmet Detection & License Plate Recognition</h3>
-                    <p>CSA 2023 - 502F · YOLO-based model · 85% detection accuracy</p>
-                    <p>Implemented real-time monitoring system for traffic enforcement</p>
+            <div class="publication-card">
+                <h3>Helmet Detection and License Plate Recognition using Machine Learning</h3>
+                <p>CSA 2023 - 502F | 85% detection accuracy</p>
+                <p class="achievement">Implemented real-time traffic monitoring system</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-list">
+                <div class="certification-item">
+                    <h3>Oracle Cloud Infrastructure 2024</h3>
+                    <p>Generative AI Certified Professional</p>
+                </div>
+                <div class="certification-item">
+                    <h3>Machine Learning Specialization</h3>
+                    <p>Advanced Data Science Certification</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Contact Me</h2>
+            <h2 class="section-title">Contact</h2>
             <div class="contact-form">
                 <form>
                     <div class="form-group">
@@ -412,27 +494,26 @@
     </section>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
             });
         });
 
-        // Navbar background change on scroll
+        // Navbar background
         window.addEventListener('scroll', () => {
             const navbar = document.querySelector('.navbar');
-            window.scrollY > 50 ? 
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)' :
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.background = window.scrollY > 50 
+                ? 'rgba(255, 255, 255, 0.98)' 
+                : 'rgba(255, 255, 255, 0.95)';
         });
 
-        // Form submission handling
+        // Form handling
         document.querySelector('form').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Thank you for your message! I will respond shortly.');
