@@ -3,19 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lalith Vardhan Rongali | Professional Portfolio</title>
+    <title>Lalith Vardhan Rongali | AI/ML Specialist</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #2ecc71;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-color);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: background 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: transform 0.3s;
+            margin: 0.5rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .achievement {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            border-left: 2px solid var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        /* Certifications */
+        .certifications {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .certification-badge {
+            width: 120px;
+            margin: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .certification-badge:hover {
+            transform: scale(1.1);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#expertise">Expertise</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
+            <li><a href="#publications">Publications</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -23,74 +290,154 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Hi, I'm Lalith Vardhan Rongali</h1>
-            <p>Machine Learning Enthusiast | AI Researcher | Software Developer</p>
-            <a href="#contact" class="cta-btn">Get in Touch</a>
+            <h1>Lalith Vardhan Rongali</h1>
+            <p>Generative AI Specialist & Computer Vision Researcher</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/lalithvardhanrongali04" class="cta-btn" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/lalith0407" class="cta-btn" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
+    <!-- Research Section -->
+    <section id="research" class="section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <p>I'm a passionate AI researcher and machine learning developer with expertise in multimodal models, retrieval-augmented generation, and deep learning. Currently pursuing my Master's in Computer Science at Indiana University Bloomington, I specialize in developing scalable AI solutions for real-world problems.</p>
+            <h2 class="section-title">Research Focus</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Video Understanding Architectures</h3>
+                    <p>V-JEPA/I-JEPA research at Indiana University</p>
+                    <ul>
+                        <li>Developed 512D anomaly detection pipeline (PyTorch/NumPy)</li>
+                        <li>Enhanced captioning accuracy through multimodal alignment</li>
+                        <li>15% improvement in action recognition benchmarks</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="section">
+    <!-- Expertise Section -->
+    <section id="expertise" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Education</h2>
-            <ul>
-                <li><strong>Indiana University Bloomington</strong> (Aug 2023 – May 2025)<br>Master of Science in Computer Science, CGPA: 3.646/4.0</li>
-                <li><strong>PES University</strong> (Aug 2019 – Jul 2023)<br>Bachelor of Technology in Computer Science and Engineering, CGPA: 3.36/4.0</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <ul>
-                <li>Languages: Python, SQL, C</li>
-                <li>Frameworks: TensorFlow, PyTorch, Scikit-learn, LangChain, LangSmith</li>
-                <li>Technologies: Machine Learning, Neural Networks, Deep Learning, Retrieval-Augmented Generation (RAG), Generative AI, Oracle Cloud Infrastructure</li>
-            </ul>
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Core ML</h3>
+                    <p>Transformers · CLIP · Vision Models · RAG</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Generative AI</h3>
+                    <p>LLMs · Diffusion Models · GANs · LangChain</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Computer Vision</h3>
+                    <p>YOLOv5 · DTM Analysis · Multimodal Learning</p>
+                </div>
+            </div>
+            
+            <h3 class="section-title" style="margin-top: 4rem;">Certifications</h3>
+            <div class="certifications">
+                <img src="oci-cert.png" alt="OCI Certified" class="certification-badge">
+                <img src="ml-specialization.png" alt="ML Specialization" class="certification-badge">
+            </div>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <ul>
-                <li><strong>Career Search with RAG-Based LLM</strong> - Built a scalable job search platform using LangChain, FAISS, and OpenAI embeddings.</li>
-                <li><strong>Automated Mound Recognition</strong> - Deployed a YOLOv5 model with transfer learning to detect archaeological mounds from DTM data.</li>
-            </ul>
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="rag-system.jpg" alt="RAG Career Search">
+                    <div class="project-info">
+                        <h3>Career Search Engine with RAG</h3>
+                        <p>LangChain · FAISS · OpenAI · 90% accuracy</p>
+                        <p class="achievement">10x query efficiency improvement</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="mound-detection.jpg" alt="Archaeological Mound Detection">
+                    <div class="project-info">
+                        <h3>Automated Mound Recognition</h3>
+                        <p>YOLOv5 · QGIS · GANs · 480 synthetic samples</p>
+                        <p class="achievement">0.573 precision score achieved</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section">
+    <!-- Publications Section -->
+    <section id="publications" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <ul>
-                <li><strong>Graduate Research Associate, Indiana University</strong> (Jan 2024 - Present) - Researching self-supervised learning for video action segmentation.</li>
-                <li><strong>Graduate Associate Instructor, Indiana University</strong> (Aug 2024 - Present) - Teaching Applied Machine Learning and Intro to Computing.</li>
-                <li><strong>Machine Learning Developer Intern, Hyphenova</strong> (Aug 2024 - Dec 2024) - Developed an NSFW detection system using YOLOv5.</li>
-            </ul>
+            <h2 class="section-title">Publications</h2>
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Helmet Detection & License Plate Recognition</h3>
+                    <p>CSA 2023 - 502F · YOLO-based model · 85% detection accuracy</p>
+                    <p>Implemented real-time monitoring system for traffic enforcement</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p>Email: <a href="mailto:rongalilalithvardhan@gmail.com">rongalilalithvardhan@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/lalithvardhanrongali04" target="_blank">linkedin.com/in/lalithvardhanrongali04</a></p>
-            <p>GitHub: <a href="https://github.com/lalith0407" target="_blank">github.com/lalith0407</a></p>
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn">Send Message</button>
+                </form>
+            </div>
         </div>
     </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            window.scrollY > 50 ? 
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)' :
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        });
+
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will respond shortly.');
+            e.target.reset();
+        });
+    </script>
 </body>
 </html>
