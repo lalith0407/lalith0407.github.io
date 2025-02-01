@@ -7,54 +7,58 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
             color: #333;
         }
         header {
-            background-color: #004080;
+            background: linear-gradient(135deg, #004080, #0073e6);
             color: white;
             text-align: center;
-            padding: 20px 0;
+            padding: 40px 0;
+            font-size: 24px;
+            font-weight: bold;
         }
         nav ul {
             list-style-type: none;
             padding: 0;
+            text-align: center;
         }
         nav ul li {
             display: inline;
-            margin: 0 15px;
+            margin: 0 20px;
         }
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
+            font-size: 18px;
         }
         section {
-            padding: 40px;
-            max-width: 800px;
+            padding: 50px;
+            max-width: 900px;
             margin: auto;
             background: white;
-            margin-top: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
         }
         h2 {
             color: #004080;
+            font-size: 28px;
         }
         footer {
             text-align: center;
-            padding: 10px;
-            background-color: #004080;
+            padding: 20px;
+            background: linear-gradient(135deg, #004080, #0073e6);
             color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+            font-size: 16px;
+            margin-top: 30px;
         }
         a {
-            color: #004080;
+            color: #0073e6;
             text-decoration: none;
         }
         a:hover {
@@ -80,7 +84,7 @@
     
     <section id="about">
         <h2>About Me</h2>
-        <p>Graduate Research Associate at Indiana University, specializing in AI, machine learning, and deep learning.</p>
+        <p>I am a passionate Machine Learning and AI Researcher currently pursuing my Master's in Computer Science at Indiana University. My research involves self-supervised encoding for action segmentation and multimodal transformer models, aiming to enhance representation learning in AI.</p>
     </section>
 
     <section id="education">
@@ -92,22 +96,24 @@
     <section id="skills">
         <h2>Technical Skills</h2>
         <ul>
-            <li>Languages: Python, SQL, C</li>
-            <li>Frameworks: TensorFlow, PyTorch, Scikit-learn, LangChain</li>
-            <li>Technologies: Machine Learning, Neural Networks, Generative AI, Retrieval-Augmented Generation (RAG)</li>
+            <li>Programming Languages: Python, SQL, C</li>
+            <li>Frameworks & Libraries: TensorFlow, PyTorch, Scikit-learn, LangChain</li>
+            <li>Technologies: Neural Networks, Generative AI, Retrieval-Augmented Generation (RAG), NLP, Data Modeling</li>
         </ul>
     </section>
 
     <section id="experience">
         <h2>Experience</h2>
         <p><strong>Indiana University</strong> (Jan 2024 - Present) - Graduate Research Associate</p>
+        <p>Researching V-JEPA and I-JEPA architectures for self-supervised encoding in action segmentation, enhancing multimodal transformer models for better image-caption alignment.</p>
         <p><strong>Hyphenova</strong> (Aug 2024 - Dec 2024) - Machine Learning Developer Intern</p>
+        <p>Developed an NSFW detection system using YOLOv5, fine-tuned with Hugging Face Transformers, boosting detection accuracy to 85% and automating compliance checks to reduce manual effort by 90%.</p>
     </section>
 
     <section id="projects">
         <h2>Projects</h2>
-        <p><strong>Career Search with RAG-Based LLM</strong> - Developed a job recommendation system using AI.</p>
-        <p><strong>Automated Mound Recognition</strong> - Used YOLO and GANs for archaeological site detection.</p>
+        <p><strong>Career Search with RAG-Based LLM</strong> - Developed a scalable LLM platform leveraging FAISS and OpenAI embeddings for high-accuracy job recommendations.</p>
+        <p><strong>Automated Mound Recognition</strong> - Designed a YOLO-based model to detect archaeological mounds using Digital Terrain Model (DTM) data, improving model precision via GAN-synthesized training samples.</p>
     </section>
 
     <section id="contact">
