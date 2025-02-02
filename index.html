@@ -39,6 +39,10 @@
             padding: 5rem 0;
         }
 
+        .bg-light {
+            background-color: var(--light-color);
+        }
+
         .section-title {
             font-size: 2.5rem;
             text-align: center;
@@ -66,6 +70,7 @@
             padding: 1rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             z-index: 1000;
+            transition: background 0.3s ease;
         }
 
         .nav-links {
@@ -125,6 +130,114 @@
 
         .cta-btn:hover {
             transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            margin: 0 auto;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .skill-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .skill-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list li i {
+            color: var(--primary-color);
+            margin-right: 0.8rem;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            border-left: 2px solid var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .experience-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .experience-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .experience-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .duration {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
         }
 
         /* Projects Section */
@@ -189,7 +302,63 @@
             background: linear-gradient(to left, white, rgba(255,255,255,0));
         }
 
+        /* Publications Section */
+        .publication-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Certifications Section */
+        .certifications-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .certification-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
         @media (max-width: 768px) {
+            .nav-links li {
+                margin: 0.5rem;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+            }
             .project-card {
                 flex: 0 0 300px;
             }
@@ -200,19 +369,20 @@
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Me</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Lalith Vardhan Rongali</h1>
-            <p></p>
+            <p>Generative AI Specialist & Computer Vision Researcher</p>
             <div class="social-links">
                 <a href="https://linkedin.com/in/lalithvardhanrongali04" class="cta-btn" target="_blank">
                     <i class="fab fa-linkedin"></i> LinkedIn
@@ -230,17 +400,15 @@
             <div class="about-content">
                 <div class="about-text">
                     <p class="lead">I am a graduate student passionate about advancing machine learning and computer vision. My current research delves into multimodel learning, computer vision, large language models (LLMs), retrieval-augmented generation (RAGs), and transformers, with the goal of developing innovative solutions to real-world challenges. As a dedicated Associate Instructor, I enjoy mentoring students and making complex concepts in machine learning and programming accessible. With practical experience in cutting-edge technologies and a solid academic foundation, I am committed to driving advancements in AI while continually learning and evolving in this dynamic field.</p>
-                    
+                </div>
+                <div class="profile-image">
+                    <!-- Add your profile image here -->
+                    <div class="image-placeholder"></div>
                 </div>
             </div>
         </div>
     </section>
 
-
-
-
-
-    
     <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
@@ -351,23 +519,20 @@
                     <div class="project-card">
                         <h3>Career Search with RAG-Based LLM</h3>
                         <p>LangChain · FAISS · OpenAI · Streamlit</p>
-                        <div class="achievement">10x query efficiency improvement</div>
+                        <div class="achievement"> Developed a scalable RAG-based LLM platform using LangChain, FAISS, and OpenAI embeddings, processing over
+ 1,000+ job postings for 90% accurate career recommendations. Automated scraping from platforms such as LinkedIn
+ using Selenium, Optimized job search query efficiency by 10x using advanced vector search techniques integrated into a
+ real-time Streamlit app.</div>
                     </div>
 
                     <!-- Project 2 -->
                     <div class="project-card">
                         <h3>Automated Mound Recognition</h3>
                         <p>YOLOv5 · QGIS · GANs</p>
-                        <div class="achievement">0.573 precision score achieved</div>
-                    </div>
-
-                    <!-- Project 3 -->
-
-                    <!-- Project 4 -->
-                    <div class="project-card">
-                        <h3>Helmet Detection System</h3>
-                        <p>YOLO · OpenCV · Machine Learning</p>
-                        <div class="achievement">85% performance score</div>
+                        <div class="achievement">• Deployed a YOLOv 5 model with transfer learning to detect archaeological mounds from Digital Terrain Model (DTM)
+ data, employing advanced geospatial preprocessing and feature extraction techniques using QGIS.
+ • Enhanced training data quality by applying Data Augmentation and Generative Adversarial Networks (GANs) to
+ synthesize 480 high-quality samples, boosting model performance and achieving a Precision score of 0.573</div>
                     </div>
 
                     <!-- Duplicate projects for seamless looping -->
@@ -382,11 +547,11 @@
                         <p>YOLOv5 · QGIS · GANs</p>
                         <div class="achievement">0.573 precision score achieved</div>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
+
     <section id="publications" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Publications</h2>
@@ -414,7 +579,25 @@
         </div>
     </section>
 
-
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <script>
         // Smooth scrolling
@@ -427,18 +610,19 @@
                 });
             });
         });
-         // Infinite scroll for projects
+
+        // Infinite scroll for projects
         const projectsContainer = document.querySelector('.projects-container');
         projectsContainer.innerHTML += projectsContainer.innerHTML;
- 
-         // Pause animation on hover
+
+        // Pause animation on hover
         const projectsWrapper = document.querySelector('.projects-wrapper');
         projectsWrapper.addEventListener('mouseenter', () => {
-             projectsContainer.style.animationPlayState = 'paused';
+            projectsContainer.style.animationPlayState = 'paused';
         });
- 
+
         projectsWrapper.addEventListener('mouseleave', () => {
-             projectsContainer.style.animationPlayState = 'running';
+            projectsContainer.style.animationPlayState = 'running';
         });
 
         // Navbar background
@@ -450,7 +634,7 @@
         });
 
         // Form handling
-        document.querySelector('form').addEventListener('submit', (e) => {
+        document.querySelector('#contact form').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Thank you for your message! I will respond shortly.');
             e.target.reset();
