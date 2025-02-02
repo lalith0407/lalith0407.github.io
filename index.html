@@ -438,31 +438,49 @@
 
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Career Search with RAG-Based LLM</h3>
-                    <p>LangChain · FAISS · OpenAI · Streamlit</p>
-                    <ul class="experience-list">
-                        <li>90% accurate career recommendations</li>
-                        <li>10x query efficiency improvement</li>
-                        <li>Automated LinkedIn scraping with Selenium</li>
-                    </ul>
-                </div>
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-wrapper">
+                <div class="projects-container">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <h3>Career Search with RAG-Based LLM</h3>
+                        <p>LangChain · FAISS · OpenAI · Streamlit</p>
+                        <div class="achievement">10x query efficiency improvement</div>
+                    </div>
 
-                <div class="project-card">
-                    <h3>Automated Mound Recognition</h3>
-                    <p>YOLOv5 · QGIS · GANs</p>
-                    <ul class="experience-list">
-                        <li>0.573 precision score on DTM data</li>
-                        <li>Generated 480 synthetic samples</li>
-                        <li>Advanced geospatial preprocessing</li>
-                    </ul>
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <h3>Automated Mound Recognition</h3>
+                        <p>YOLOv5 · QGIS · GANs</p>
+                        <div class="achievement">0.573 precision score achieved</div>
+                    </div>
+
+                    <!-- Project 3 -->
+
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <h3>Helmet Detection System</h3>
+                        <p>YOLO · OpenCV · Machine Learning</p>
+                        <div class="achievement">85% performance score</div>
+                    </div>
+
+                    <!-- Duplicate projects for seamless looping -->
+                    <div class="project-card">
+                        <h3>Career Search with RAG-Based LLM</h3>
+                        <p>LangChain · FAISS · OpenAI · Streamlit</p>
+                        <div class="achievement">10x query efficiency improvement</div>
+                    </div>
+
+                    <div class="project-card">
+                        <h3>Automated Mound Recognition</h3>
+                        <p>YOLOv5 · QGIS · GANs</p>
+                        <div class="achievement">0.573 precision score achieved</div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
-
     <section id="publications" class="section bg-light">
         <div class="container">
             <h2 class="section-title">Publications</h2>
@@ -502,6 +520,19 @@
                     block: 'start'
                 });
             });
+        });
+         // Infinite scroll for projects
+        const projectsContainer = document.querySelector('.projects-container');
+        projectsContainer.innerHTML += projectsContainer.innerHTML;
+ 
+         // Pause animation on hover
+        const projectsWrapper = document.querySelector('.projects-wrapper');
+        projectsWrapper.addEventListener('mouseenter', () => {
+             projectsContainer.style.animationPlayState = 'paused';
+        });
+ 
+        projectsWrapper.addEventListener('mouseleave', () => {
+             projectsContainer.style.animationPlayState = 'running';
         });
 
         // Navbar background
