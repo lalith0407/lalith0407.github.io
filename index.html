@@ -251,7 +251,7 @@
             display: flex;
             gap: 2rem;
             width: max-content;
-            animation: scroll 80s linear infinite;
+            animation: scroll 100s linear infinite;
         }
 
         @keyframes scroll {
@@ -643,7 +643,7 @@ Scalable Data Pipeline for Large Datasets: Processed 3M+ records using one-hot e
         projectsContainer.addEventListener('animationiteration', () => {
             projectsContainer.style.animation = 'none';
             void projectsContainer.offsetWidth; // Trigger reflow
-            projectsContainer.style.animation = 'scroll 40s linear infinite';
+            projectsContainer.style.animation = 'scroll 100s linear infinite';
         });
 
         projectsWrapper.addEventListener('mouseleave', () => {
