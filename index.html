@@ -640,6 +640,11 @@ Scalable Data Pipeline for Large Datasets: Processed 3M+ records using one-hot e
         projectsWrapper.addEventListener('mouseenter', () => {
             projectsContainer.style.animationPlayState = 'paused';
         });
+        projectsContainer.addEventListener('animationiteration', () => {
+            projectsContainer.style.animation = 'none';
+            void projectsContainer.offsetWidth; // Trigger reflow
+            projectsContainer.style.animation = 'scroll 40s linear infinite';
+        });
 
         projectsWrapper.addEventListener('mouseleave', () => {
             projectsContainer.style.animationPlayState = 'running';
